@@ -27,6 +27,7 @@ class ApiController extends ActiveController
 
     protected function verbs() {
         $verbs = parent::verbs();
+        // Определяем разрешенные HTTP-методы для каждого действия
         $verbs =  [
             'getlist' => ['GET'],
             'create' => ['POST', 'OPTIONS'],
@@ -57,8 +58,8 @@ class ApiController extends ActiveController
         return ['status' => 'success', 'data' => $news, "totalPages" => ceil($count / $limit)];
     }
     /**
-     *  endpoint /api/create [post] для создание новости отправка запроса по типу
-     * {"title":"title", "description":"description","text":"text" }
+     *  endpoint /api/create [post] для создание новости 
+     * Отправьте JSON-запрос вида: {"title":"title", "description":"description","text":"text" }
      * @return string json с статусом успеха
      */
     public function actionCreate(){
@@ -77,8 +78,10 @@ class ApiController extends ActiveController
     }
 
     /**
-     *  endpoint /api/update/${ID} [post] для обнволение уже созданной новости отправка запроса по типу
-     * {"title":"title", "description":"description","text":"text" } и id указывается в url
+     *  endpoint /api/update/${ID} [post] для обнволение уже созданной новости
+     * Отправьте JSON-запрос вида: {"title":"title", "description":"description","text":"text" }
+     * ID указывается в URL.
+     * @param int $id ID новости для обновлени
      * @return string json с статусом успеха
      */
     public function actionUpdate($id){
@@ -101,7 +104,9 @@ class ApiController extends ActiveController
         }
     }
     /**
-     *  endpoint /api/delete/${ID} [delete] для удаление созданной новости id указывается в url
+     *  endpoint /api/delete/${ID} [delete] для удаление созданной новости 
+     *  ID указывается в URL.
+     * @param int $id ID новости для удаления
      * @return string json с статусом успеха
      */
     public function actionDelete($id){
