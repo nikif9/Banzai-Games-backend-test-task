@@ -14,3 +14,4 @@
     ```
 2. дамб бд находится в файле banzai.sql
 3. версия php 8.2.4 версия yii 2.0.49
+4. фрон на react находится по ссылкее <a href="https://github.com/nikif9/Banzai-Games-front-test-task" target="_blank">тут</a>
